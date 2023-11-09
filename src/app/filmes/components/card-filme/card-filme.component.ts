@@ -31,7 +31,6 @@ export class CardFilmeComponent implements OnInit {
     this.avaliacaoService.avaliarFilme(new AvaliacaoRequest(this.filme.id, this.usuario.id, nota));
   }
 
-
   verificarNota(){
     this.avaliacaoService.buscarNota(this.filme.id, this.usuario.id).subscribe(
       {
