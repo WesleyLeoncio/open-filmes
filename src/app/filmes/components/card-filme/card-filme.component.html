@@ -1,0 +1,22 @@
+<div class="myCard">
+  <div class="innerCard">
+    <div class="frontSide">
+      <img mat-card-image class="frontSideImage"
+           src="../../../../assets/img/filmes/{{filme.imagem}}"
+           alt="Imagem do filme do frontSide">
+    </div>
+    <div class="backSide">
+      <img mat-card-image class="backSideImage"
+           src="../../../../assets/img/filmes/{{filme.imagem}}"
+           alt="Imagem do filme do backSide">
+      <ul>
+        <li>
+          <p class="title">Avaliação</p>
+        </li>
+        <li>
+          <app-star [selectedStar]="nota" (onRating)="salvarNota($event)"></app-star>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

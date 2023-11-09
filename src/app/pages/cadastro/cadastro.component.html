@@ -1,0 +1,79 @@
+<div class="cadastro">
+  <app-container>
+    <mat-card>
+      <form [formGroup]="cadastroForm.formCadastroUser">
+        <div class="titulo-imagem">
+          <figure>
+            <img src="./assets/img/chopper.png">
+          </figure>
+          <mat-card-title>
+            Crie Sua Conta</mat-card-title>
+        </div>
+        <mat-card-content>
+          <mat-form-field appearance="outline">
+            <mat-label>Nome</mat-label>
+            <input matInput type="text" placeholder="Digite seu nome"
+                   name="nome"
+                   formControlName="name"
+            >
+            <mat-error>{{ cadastroForm.msgErrorForm(
+              'nome',
+              'name'
+            ) }}</mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>E-mail</mat-label>
+            <input matInput type="email" placeholder="Digite seu e-mail"
+                   name="email"
+                   formControlName="login"
+            >
+            <mat-error>{{ cadastroForm.msgErrorForm(
+              'email',
+              'login'
+            ) }}</mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Confirmar E-mail</mat-label>
+            <input matInput placeholder="Digite seu e-mail novamente"
+                   name="confirmar-email"
+                   formControlName="confirmLogin"
+            >
+            <mat-error>{{ cadastroForm.msgErrorForm(
+              'e-mail',
+              'confirmLogin'
+            ) }}</mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Senha</mat-label>
+            <input matInput type="password" placeholder="Digite sua senha"
+                   name="senha"
+                   formControlName="password"
+            >
+            <mat-error>{{ cadastroForm.msgErrorForm(
+              'senha',
+              'password'
+            ) }}</mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Confirmar Senha</mat-label>
+            <input matInput type="password" placeholder="Repita sua senha"
+                   name="confirmar-email"
+                   formControlName="confirmPassword"
+            >
+            <mat-error>{{ cadastroForm.msgErrorForm(
+              'senha',
+              'confirmPassword'
+            ) }}</mat-error>
+          </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions class="full-width">
+          <button mat-flat-button color="warn" (click)="cancelar()">CANCELAR</button>
+          <button mat-flat-button color="accent"
+                  (click)="cadastrar()"
+                  [disabled]="!cadastroForm.validarForm()"
+          >CADASTRAR</button>
+        </mat-card-actions>
+      </form>
+    </mat-card>
+  </app-container>
+</div>

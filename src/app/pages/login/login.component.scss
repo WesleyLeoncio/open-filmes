@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Nosifer&display=swap');
+
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: linear-gradient(to top, #bc4e9c, #f80759);
+
+  .painel {
+    width: 80%;
+    height: 80vh;
+    max-width: 1164px;
+    display: flex;
+    border-radius: 20px;
+    overflow-y: auto;
+    box-shadow: inset 0 0 1em white,
+    0 0 1em white;
+  }
+
+  .image-login {
+    width: 55%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #212b2a;
+
+    img {
+      position: absolute;
+      width: 60%;
+      max-width: 780px;
+      height: 80%;
+    }
+  }
+
+  .form-login {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    padding: 3rem;
+  }
+
+  .titulo {
+    h1 {
+      font-family: 'Nosifer', sans-serif;
+      font-size: 35px;
+      color: #f80759;
+    }
+  }
+
+  form {
+    width: 80%;
+    mat-form-field {
+      width: 100%;
+      margin-top: 15px;
+    }
+  }
+
+  .button-login {
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+
+    button {
+      border-radius: 5px;
+      font-size: 17px;
+      font-family: "Arial Black", serif;
+    }
+  }
+}
+
+p {
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+a {
+  color: #f80759;
+  cursor: pointer;
+
+  &:active {
+    color: #bc4e9c;
+  }
+}
+
+
+
+
+@media(max-width: 1164px) {
+  #image-login-id {
+    display: none;
+  }
+  #form-login-id {
+    width: 100%;
+  }
+}

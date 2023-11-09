@@ -1,0 +1,9 @@
+<button mat-mini-fab  color="#80D0C7"
+        *ngFor=" let icon of maxNotaArray; let index = index"
+        (mouseenter)="handleMouseEnter(index)"
+        (mouseleave)="handleMouseLeave()"
+        (click)="rating(index)"
+        [ngClass]="{checked: selectedStar > index}"
+>
+  <mat-icon>star</mat-icon>
+</button>
