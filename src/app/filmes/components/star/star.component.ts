@@ -16,15 +16,18 @@ export class StarComponent implements OnInit, OnChanges {
   previousSelection: number = 0;
   maxNotaArray: any = [];
 
-  ngOnInit(): void {
-    this.maxNotaArray = Array(this.maxNota).fill(0);
-  }
-
   ngOnChanges(changes: SimpleChanges): void {
     if (!changes['selectedStar'].firstChange){
       this.previousSelection = this.selectedStar;
     }
   }
+
+  ngOnInit(): void {
+    this.maxNotaArray = Array(this.maxNota).fill(0);
+  }
+
+
+
 
   @Output()
   onRating: EventEmitter<number> = new EventEmitter<number>();
