@@ -1,6 +1,7 @@
-<app-container >
-  <div *ngFor="let filme of listaFilmes">
-    <app-card-filme [filme]="filme"></app-card-filme>
-  </div>
-</app-container>
-
+<div class="filmes">
+  <app-container class="card-wrapper">
+    <div *ngFor="let filme of listaFilmes">
+      <app-card-filme [filme]="filme"></app-card-filme>
+    </div>
+  </app-container>
+</div>

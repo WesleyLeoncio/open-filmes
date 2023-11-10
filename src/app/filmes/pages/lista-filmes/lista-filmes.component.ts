@@ -9,12 +9,12 @@ import { FilmePageable } from "../../models/interfaces/filme-pageable";
   styleUrls: ['./lista-filmes.component.scss']
 })
 export class ListaFilmesComponent implements OnInit {
-
+  //TODO REFATORAR O METODO DE LISTAR COLOCAR OBSERVABLE OU IMPLEMNTAR O ON DESTROI
   listaFilmesPage!: FilmePageable;
   listaFilmes!: Filme[];
 
   ngOnInit(): void {
-    this.getFilmes(10, 0);
+    this.getFilmes(8, 0);
   }
   constructor(
     private filmeService: FilmeService
