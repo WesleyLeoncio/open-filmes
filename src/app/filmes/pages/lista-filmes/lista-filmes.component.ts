@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FilmeService } from "../../service/filme.service";
 import { Filme } from "../../models/interfaces/filme";
 import { FilmePageable } from "../../models/interfaces/filme-pageable";
+import { UserService } from "../../../shared/service/user.service";
 
 @Component({
   selector: 'app-lista-filmes',
@@ -17,7 +18,8 @@ export class ListaFilmesComponent implements OnInit {
     this.getFilmes(8, 0);
   }
   constructor(
-    private filmeService: FilmeService
+    private filmeService: FilmeService,
+    private userService: UserService
   ) {}
 
  getFilmes(size: number,page: number): void{
@@ -26,10 +28,17 @@ export class ListaFilmesComponent implements OnInit {
        next: pageFilme =>{
          this.listaFilmesPage = pageFilme;
          this.listaFilmes = pageFilme.content;
-       }
+       },
+       error: err => this.logout(err.status)
      }
    )
  }
 
+ //TODO REFATORAR
+  logout(status: number): void{
+    if(status == 401){
+      this.userService.logout();
+    }
+  }
 
 }

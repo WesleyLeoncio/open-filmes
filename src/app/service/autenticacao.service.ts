@@ -7,6 +7,7 @@ import { UserToken } from "../models/interfaces/user-token";
 import { environment } from "../../environments/environment";
 import { SnackBarService } from "../shared/service/snack-bar.service";
 import { UserService } from "../shared/service/user.service";
+import { LoginFormService } from "./login-form/login-form.service";
 
 @Injectable({
   providedIn: 'root'
@@ -17,11 +18,13 @@ export class AutenticacaoService {
     private http: HttpClient,
     private userService: UserService,
     private route: Router,
-    private snackService: SnackBarService
+    private snackService: SnackBarService,
+    private loginFormService: LoginFormService
   ) {
   }
 
-  public login(user: User): Subscription {
+  public login(): Subscription {
+    const user: User = <User>this.loginFormService.formUser();
     return this.http.post<UserToken>(`${environment.apiUrl}/login`, user).subscribe(
       {
         next: user => this.sucesso(user),
@@ -30,12 +33,13 @@ export class AutenticacaoService {
     );
   }
 
-  private sucesso(token: UserToken): void{
+  private sucesso(token: UserToken): void {
     this.userService.salvarToken(token);
+    this.loginFormService.limparForm();
     this.route.navigate(['']).finally();
   }
 
-  private erro(msgErro: any | string): void{
+  private erro(msgErro: any | string): void {
     msgErro = msgErro.error;
     this.snackService.snackBarOpenTop(msgErro, 7);
     this.userService.logout();

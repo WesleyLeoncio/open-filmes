@@ -47,11 +47,11 @@ export class CadastroFormService {
     });
   }
 
-  public limparForm(){
+  public limparForm(): void{
     this.formCadastroUser.reset();
   }
 
-    public validarForm() {
+    public validarForm(): boolean {
         return this.formCadastroUser.valid;
     }
 

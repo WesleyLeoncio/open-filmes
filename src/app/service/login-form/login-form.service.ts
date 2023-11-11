@@ -32,6 +32,10 @@ export class LoginFormService {
     });
   }
 
+  public limparForm(): void{
+    this.formLogin.reset();
+  }
+
   public validarForm(): boolean {
     return this.formLogin.valid;
   }

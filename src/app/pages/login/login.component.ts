@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginFormService } from "../../service/login-form/login-form.service";
 import { AutenticacaoService } from "../../service/autenticacao.service";
-import { User } from "../../models/user";
 
 
 @Component({
@@ -11,7 +10,7 @@ import { User } from "../../models/user";
 })
 export class LoginComponent implements OnInit {
 
-  hide = true;
+  hide: boolean = true;
 
   ngOnInit(): void {
   }
@@ -19,13 +18,12 @@ export class LoginComponent implements OnInit {
   constructor(
     public loginFormService: LoginFormService,
     private autenticacaoService: AutenticacaoService,
-
   ) {
   }
 
-  login(){
-    if (this.loginFormService.validarForm()){
-      this.autenticacaoService.login(<User>this.loginFormService.formUser())
+  login(): void {
+    if (this.loginFormService.validarForm()) {
+      this.autenticacaoService.login();
     }
 
   }
