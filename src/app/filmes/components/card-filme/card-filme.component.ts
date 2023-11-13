@@ -27,13 +27,16 @@ export class CardFilmeComponent implements OnInit {
   constructor(
     private avaliacaoService: AvaliacaoService,
     private userService: UserService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+
   ) {
-    this.usuario = this.userService.getUserTesteRemoverEsseMetodo()
+    this.usuario = this.userService.getUserTesteRemoverEsseMetodo();
+
   }
 
   salvarNota(nota: number): void {
     this.avaliacaoService.avaliarFilme(new AvaliacaoRequest(this.filme.id, this.usuario.id, nota));
+    this.nota = nota;
   }
 
   verificarNota() {
@@ -55,13 +58,19 @@ export class CardFilmeComponent implements OnInit {
   }
 
 
-  openModal():void{
-    this.dialog.open(ModalFilmeComponent,{
+  openModal(): void {
+    this.dialog.open(ModalFilmeComponent, {
       data: {
+        filme: this.filme,
         userId: this.usuario.id,
-        filmeId:this.filme.id
+        nota: this.nota
+      },
+        disableClose: true
+    }).afterClosed().subscribe(notaModal => {
+      if (notaModal){
+          this.nota = notaModal;
       }
-    })
+    });
   }
 
 

@@ -20,7 +20,7 @@ export class AvaliacaoService {
   ) {
   }
 
-  public avaliarFilme(avaliacao: AvaliacaoRequest) {
+  public avaliarFilme(avaliacao: AvaliacaoRequest): void {
     this.http.post(`${this.url}/avaliacoes`, avaliacao).subscribe(
       {
         next: value => value,

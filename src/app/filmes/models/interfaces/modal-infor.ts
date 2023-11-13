@@ -1,4 +1,7 @@
+import { Filme } from "./filme";
+
 export interface ModalInfor {
+  filme: Filme,
   userId: number,
-  filmeId: number
+  nota: number
 }
