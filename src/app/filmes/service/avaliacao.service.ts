@@ -29,7 +29,9 @@ export class AvaliacaoService {
     )
   }
 
-
+  public avaliacaoFilmes(filmeId: number, usuarioId: number): Observable<any> {
+    return this.http.get<any>(`${this.url}/avaliacoes/avaliacao/${filmeId}/${usuarioId}`);
+  }
 
   public buscarNota(filmeId: number, usuarioId: number): Observable<NotaFilme> {
     return this.http.get<NotaFilme>(`${this.url}/avaliacoes/nota/${filmeId}/${usuarioId}`);

@@ -7,6 +7,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatChipsModule } from '@angular/material/chips';
 
 @NgModule({
   declarations: [],
@@ -18,7 +19,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatSnackBarModule,
     MatDialogModule,
     MatToolbarModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatChipsModule
   ]
 })
 export class MaterialModule {

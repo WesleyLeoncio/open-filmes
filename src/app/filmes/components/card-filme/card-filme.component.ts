@@ -4,6 +4,8 @@ import { AvaliacaoService } from "../../service/avaliacao.service";
 import { AvaliacaoRequest } from "../../models/request/avaliacao-request";
 import { UserService } from "../../../shared/service/user.service";
 import { UserInfo } from "../../../models/interfaces/user-info";
+import { MatDialog } from "@angular/material/dialog";
+import { ModalFilmeComponent } from "../modal/modal-filme/modal-filme.component";
 
 
 @Component({
@@ -24,7 +26,8 @@ export class CardFilmeComponent implements OnInit {
 
     constructor(
         private avaliacaoService: AvaliacaoService,
-        private userService: UserService
+        private userService: UserService,
+        private dialog: MatDialog
     ) {
         this.usuario = this.userService.getUserTesteRemoverEsseMetodo()
     }
@@ -49,6 +52,16 @@ export class CardFilmeComponent implements OnInit {
             this.nota = 0;
         }
 
+    }
+
+
+    openModal():void{
+      this.dialog.open(ModalFilmeComponent,{
+        data: {
+          userId: this.usuario.id,
+          filmeId:this.filme.id
+        }
+      })
     }
 
 

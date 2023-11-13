@@ -23,10 +23,9 @@ export class StarComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {
+    this.previousSelection = this.selectedStar;
     this.maxNotaArray = Array(this.maxNota).fill(0);
   }
-
-
 
 
   @Output()

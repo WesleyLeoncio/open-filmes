@@ -1,4 +1,4 @@
-<div class="myCard">
+<div class="myCard" >
   <div class="innerCard">
     <div class="frontSide">
       <img mat-card-image class="frontSideImage"
@@ -6,7 +6,7 @@
            alt="Imagem do filme do {{filme.nome}}">
     </div>
     <div class="backSide">
-      <img mat-card-image class="backSideImage"
+      <img mat-card-image class="backSideImage" (click)="openModal()"
            src="../../../../assets/img/filmes/{{filme.imagem}}"
            alt="Imagem do filme do backSide">
       <ul>

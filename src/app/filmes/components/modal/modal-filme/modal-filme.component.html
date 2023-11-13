@@ -1,0 +1,31 @@
+<section>
+    <div class="card" *ngIf="avaliacao">
+        <img class="imagem" src="./assets/img/filmes/{{avaliacao.filme.imagem}}" alt="Capa do filme {{avaliacao.filme.nome}}">
+        <div class="info-card">
+            <p class="titulo">{{avaliacao.filme.nome}}</p>
+            <p class="informacoes">Lançamento: {{avaliacao.filme.dataLancamento}}</p>
+            <p class="informacoes">Duração: {{avaliacao.filme.duracao}}</p>
+            <div class="">
+                <span class="informacoes">Categorias: </span>
+                <div class="categorias">
+                    <mat-chip-set *ngFor="let categoria of avaliacao.filme.categorias">
+                        <mat-chip>{{categoria.nome}}</mat-chip>
+                    </mat-chip-set>
+                </div>
+            </div>
+            <div class="avaliacao">
+                <p class="informacoes">Sua Avaliação</p>
+                <app-star [selectedStar]="avaliacao.nota" (onRating)="salvarNota($event)"></app-star>
+            </div>
+
+        </div>
+        <button mat-mini-fab color="warn" mat-dialog-close class="botao-fechar">
+            <mat-icon>close</mat-icon>
+        </button>
+        <div class="sinopse-container">
+            <h4 class="sinopse-titulo">Sinopse:</h4>
+            <h3>{{avaliacao.filme.descricao}}</h3>
+        </div>
+    </div>
+    <div class="overlay"></div>
+</section>

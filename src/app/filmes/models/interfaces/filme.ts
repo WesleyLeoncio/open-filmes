@@ -7,5 +7,5 @@ export interface Filme {
   dataLancamento: Date,
   duracao: string,
   imagem: string,
-  categoria: Categoria
+  categorias: Categoria[]
 }

@@ -1,0 +1,139 @@
+$main-color: #fff;
+//TODO REFATORAR
+
+.mat-mdc-standard-chip {
+  font-family: 'Poppins', serif;
+  --mdc-chip-elevated-container-color: deeppink;
+  --mdc-chip-label-text-color: #fff;
+}
+
+.card {
+  display: grid;
+  grid-template-areas: "imagem info-card botao-fechar" "sinopse sinopse sinopse";
+  grid-row-gap: 1rem;
+  min-height: 30rem;
+  max-height: 90%;
+  grid-template-columns: 1fr 3fr 20px;
+  grid-template-rows: min-content;
+  border-radius: 8px;
+  background-image: linear-gradient(to top, #bc4e9c, #f80759);
+  position: fixed;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  padding: 24px;
+  z-index: 11;
+  box-shadow: inset 0 0 1em #bc4e9c,
+  0 0 1em white;
+}
+
+.avaliacao {
+  margin-top: 5px;
+}
+
+.overlay {
+  background: #000;
+  height: 100vh;
+  left: 0;
+  opacity: 0.5;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 10;
+}
+
+.titulo {
+  font-family: 'Poppins', serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 30px;
+  color: $main-color;
+  padding-top: 16px;
+}
+
+.informacoes {
+  font-family: 'Poppins', serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: $main-color;
+  padding-bottom: 4px;
+}
+
+.resultado {
+  font-family: 'Poppins', serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #8B8B8B;
+  padding-bottom: 8px;
+  text-align: justify;
+}
+
+.detalhes {
+  background: #6C63FF;
+  width: 9rem;
+  height: 2.5rem;
+  border-radius: 8px;
+  font-family: 'Poppins', serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: $main-color;
+  border: none;
+  cursor: pointer;
+}
+
+.categorias {
+  display: flex;
+  gap: 5px;
+}
+
+.info-card {
+  background: transparent;
+  width: 18rem;
+  padding-left: 1.5rem;
+  grid-area: info-card;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.imagem {
+  height: 18rem;
+  padding-top: 1rem;
+}
+
+.sinopse-container {
+  color: $main-color;
+  grid-area: sinopse;
+  padding-bottom: 0;
+
+  .sinopse-titulo {
+    font-family: 'Poppins', serif;
+    font-size: 18px;
+  }
+
+}
+
+
+.botao-fechar {
+  width: 24px;
+  height: 28px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 44px;
+  line-height: 14px;
+  border: none;
+  cursor: pointer;
+  grid-area: botao-fechar;
+  margin-top: 0.1rem;
+}
+
+
+
+
