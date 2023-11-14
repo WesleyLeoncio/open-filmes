@@ -7,39 +7,34 @@ import { NotaFilme } from "../models/interfaces/nota-filme";
 import { SnackBarService } from "../../shared/service/snack-bar.service";
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class AvaliacaoService {
+    private readonly url: string = environment.apiUrl;
 
-  private readonly url: string = environment.apiUrl;
 
+    constructor(
+        private http: HttpClient,
+        private snackService: SnackBarService
+    ) {
+    }
 
-  constructor(
-    private http: HttpClient,
-    private snackService: SnackBarService
-  ) {
-  }
+    public avaliarFilme(avaliacao: AvaliacaoRequest): Observable<any> {
+        return this.http.post(`${this.url}/avaliacoes`, avaliacao);
+    }
 
-  public avaliarFilme(avaliacao: AvaliacaoRequest): void {
-    this.http.post(`${this.url}/avaliacoes`, avaliacao).subscribe(
-      {
-        next: value => value,
-        error: erro => this.erro(erro)
-      }
-    )
-  }
+    public avaliacaoFilmes(filmeId: number, usuarioId: number): Observable<any> {
+        return this.http.get<any>(`${this.url}/avaliacoes/avaliacao/${filmeId}/${usuarioId}`);
+    }
 
-  public avaliacaoFilmes(filmeId: number, usuarioId: number): Observable<any> {
-    return this.http.get<any>(`${this.url}/avaliacoes/avaliacao/${filmeId}/${usuarioId}`);
-  }
+    public buscarNota(filmeId: number, usuarioId: number): Observable<NotaFilme> {
+        return this.http.get<NotaFilme>(`${this.url}/avaliacoes/nota/${filmeId}/${usuarioId}`);
+    }
 
-  public buscarNota(filmeId: number, usuarioId: number): Observable<NotaFilme> {
-    return this.http.get<NotaFilme>(`${this.url}/avaliacoes/nota/${filmeId}/${usuarioId}`);
-  }
+    public erro(msgErro: any | string): void {
+        msgErro = msgErro.error;
+        this.snackService.snackBarOpenTop(msgErro, 5);
+    }
 
-  private erro(msgErro: any | string): void{
-    msgErro = msgErro.error;
-    this.snackService.snackBarOpenTop(msgErro, 5);
-  }
 
 }

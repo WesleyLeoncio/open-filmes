@@ -5,37 +5,41 @@ import { AvaliacaoService } from "../../../service/avaliacao.service";
 import { AvaliacaoRequest } from "../../../models/request/avaliacao-request";
 
 @Component({
-  selector: 'app-modal-filme',
-  templateUrl: './modal-filme.component.html',
-  styleUrls: ['./modal-filme.component.scss']
+    selector: 'app-modal-filme',
+    templateUrl: './modal-filme.component.html',
+    styleUrls: ['./modal-filme.component.scss']
 })
-export class ModalFilmeComponent implements OnInit{
-  //TODO REFATORAR COMPONENETE
-
-  filmeAv!: ModalInfor;
-
-  ngOnInit(): void {
-
-  }
-
-  constructor(
-    @Inject(MAT_DIALOG_DATA) public data: ModalInfor,
-    private avaliacaoService: AvaliacaoService,
-    public dialogRef: MatDialogRef<ModalFilmeComponent>
-
-  ) {
-    this.filmeAv = data;
-  }
+export class ModalFilmeComponent implements OnInit {
+    //TODO REFATORAR COMPONENETE
 
 
-  salvarNota(nota: number): void {
-    this.avaliacaoService.avaliarFilme(new AvaliacaoRequest(this.filmeAv.filme.id, this.filmeAv.userId, nota));
-    this.filmeAv.nota = nota;
-  }
+    ngOnInit(): void {
+
+    }
+
+    constructor(
+        @Inject(MAT_DIALOG_DATA) public data: ModalInfor,
+        private avaliacaoService: AvaliacaoService,
+        public dialogRef: MatDialogRef<ModalFilmeComponent>
+    ) {}
 
 
-  fecharModal():void{
-    this.dialogRef.close(this.filmeAv.nota);
-  }
+    salvarNota(nota: number): void {
+        this.avaliacaoService.avaliarFilme(new AvaliacaoRequest(this.data.filme.id, this.data.userId, nota))
+            .subscribe(
+                {
+                    next: result => {
+                        this.data.nota = nota;
+                        return result;
+                    },
+                    error: err => this.avaliacaoService.erro(err)
+                }
+            )
+    }
+
+
+    fecharModal(): void {
+        this.dialogRef.close(this.data.nota);
+    }
 
 }

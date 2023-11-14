@@ -1,21 +1,21 @@
 <section>
-    <div class="card" *ngIf="filmeAv">
-        <img class="imagem" src="./assets/img/filmes/{{filmeAv.filme.imagem}}" alt="Capa do filme {{filmeAv.filme.nome}}">
+    <div class="card" *ngIf="data">
+        <img class="imagem" src="./assets/img/filmes/{{data.filme.imagem}}" alt="Capa do filme {{data.filme.nome}}">
         <div class="info-card">
-            <p class="titulo">{{filmeAv.filme.nome}}</p>
-            <p class="informacoes">Lançamento: {{filmeAv.filme.dataLancamento}}</p>
-            <p class="informacoes">Duração: {{filmeAv.filme.duracao}}</p>
+            <p class="titulo">{{data.filme.nome}}</p>
+            <p class="informacoes">Lançamento: {{data.filme.dataLancamento}}</p>
+            <p class="informacoes">Duração: {{data.filme.duracao}}</p>
             <div class="">
                 <span class="informacoes">Categorias: </span>
                 <div class="categorias">
-                    <mat-chip-set *ngFor="let categoria of filmeAv.filme.categorias">
+                    <mat-chip-set *ngFor="let categoria of data.filme.categorias">
                         <mat-chip>{{categoria.nome}}</mat-chip>
                     </mat-chip-set>
                 </div>
             </div>
             <div class="avaliacao">
                 <p class="informacoes">Sua Avaliação</p>
-                <app-star [selectedStar]="filmeAv.nota" (onRating)="salvarNota($event)"></app-star>
+                <app-star [selectedStar]="data.nota" (onRating)="salvarNota($event)"></app-star>
             </div>
 
         </div>
@@ -24,7 +24,7 @@
         </button>
         <div class="sinopse-container">
             <h4 class="sinopse-titulo">Sinopse:</h4>
-            <h3>{{filmeAv.filme.descricao}}</h3>
+            <h3>{{data.filme.descricao}}</h3>
         </div>
     </div>
     <div class="overlay"></div>
