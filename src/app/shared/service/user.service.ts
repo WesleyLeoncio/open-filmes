@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, finalize, Observable } from "rxjs";
+import { BehaviorSubject, Observable } from "rxjs";
 import { TokenService } from "./token.service";
 import { jwtDecode } from "jwt-decode";
 import { UserToken } from "../../models/interfaces/user-token";
