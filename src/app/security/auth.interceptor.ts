@@ -1,32 +1,41 @@
 import { Injectable } from '@angular/core';
 import {
-    HttpRequest,
-    HttpHandler,
-    HttpEvent,
-    HttpInterceptor
+  HttpRequest,
+  HttpHandler,
+  HttpEvent,
+  HttpInterceptor, HttpErrorResponse
 } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { TokenService } from "../shared/service/token.service";
-
+import { catchError, Observable, throwError } from 'rxjs';
+import { UserService } from "../shared/service/user.service";
 
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
-    constructor(private token: TokenService) {
+  constructor(private userService: UserService) {
+  }
+
+  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+
+    const meuToken: string = this.userService.getToken();
+
+    if (meuToken != null) {
+      request = request.clone({
+        setHeaders: {'Authorization': `Bearer ${meuToken}`}
+      });
     }
 
-    intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+    return next.handle(request).pipe(
+      catchError((erro: HttpErrorResponse) => {
+        return this.handler401Error(erro);
+      })
+    );
+  }
 
-        const meuToken: string = this.token.search().token;
-
-        if (meuToken != null) {
-            const authRequest: HttpRequest<any> = request.clone({
-                setHeaders: {'Authorization': `Bearer ${meuToken}`}
-            });
-            return next.handle(authRequest);
-        }
-
-        return next.handle(request);
+  private handler401Error(erro: HttpErrorResponse): Observable<HttpErrorResponse | any> {
+    if (erro.status === 401 || erro.status == 403) {
+      this.userService.logout();
     }
+    return throwError(() => erro);
+  }
 }

@@ -14,10 +14,7 @@ export class HeaderComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    const logado: boolean = this.userService.estaLogado();
-    if (!logado){
-      this.logout();
-    }
+      console.log(this.userService.getUserLoginInfor());
   }
 
 

@@ -33,7 +33,7 @@ export class CardFilmeComponent implements OnInit, OnDestroy {
         private userService: UserService,
         private dialog: MatDialog,
     ) {
-        this.usuario = this.userService.getUserTesteRemoverEsseMetodo();
+        this.usuario = this.userService.getUserLoginInfor();
     }
 
 
@@ -52,7 +52,7 @@ export class CardFilmeComponent implements OnInit, OnDestroy {
             );
     }
 
-    verificarNota() {
+    verificarNota(): void {
         this.avaliacaoService.buscarNota(this.filme.id, this.usuario.id).subscribe(
             {
                 next: notaFilme => this.validarNota(notaFilme.nota),

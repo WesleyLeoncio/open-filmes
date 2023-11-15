@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from "rxjs";
 import { TokenService } from "./token.service";
 import { jwtDecode } from "jwt-decode";
 import { UserToken } from "../../models/interfaces/user-token";
@@ -10,9 +9,8 @@ import { Router } from "@angular/router";
   providedIn: 'root'
 })
 export class UserService {
-  private userSubject = new BehaviorSubject<UserInfo | null>(null);
 
-  private usuarioTeste!: UserInfo;
+  private userLoginInfor!: UserInfo;
   constructor(
     private tokenService: TokenService,
     private router: Router
@@ -23,33 +21,29 @@ export class UserService {
   }
 
   private decodificarJWT(){
-    const token: string = this.tokenService.search().token;
-    const user: UserInfo = jwtDecode(token) as UserInfo;
-    this.usuarioTeste = user;
-    this.userSubject.next(user);
+    const token: string = this.getToken();
+    this.userLoginInfor = jwtDecode(token) as UserInfo;
   }
 
-  //TODO REMOVER METODO
-  getUserTesteRemoverEsseMetodo(){
-    return this.usuarioTeste;
+  getUserLoginInfor(): UserInfo{
+    return this.userLoginInfor;
   }
 
-  public retornarUser():Observable<UserInfo | null> {
-    return this.userSubject.asObservable();
-  }
-
-  public salvarToken(token: UserToken){
+  public salvarToken(token: UserToken): void{
     this.tokenService.save(token);
     this.decodificarJWT();
   }
 
-  logout() {
+  logout(): void {
     this.tokenService.clear();
     this.router.navigate(['/login']).finally();
-    this.userSubject.next(null);
   }
 
-  estaLogado() {
+  estaLogado(): boolean {
     return this.tokenService.itHasToken();
+  }
+
+  getToken(): string{
+    return this.tokenService.search().token;
   }
 }
