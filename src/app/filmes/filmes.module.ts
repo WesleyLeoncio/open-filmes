@@ -7,10 +7,12 @@ import { MaterialModule } from "../shared/material/material.module";
 import { StarComponent } from "./components/star/star.component";
 import { GeneralModule } from "../shared/general/general.module";
 import { ModalFilmeComponent } from './components/modal/modal-filme/modal-filme.component';
+import { MinhasAvaliacoesComponent } from './pages/minhas-avaliacoes/minhas-avaliacoes.component';
 
 @NgModule({
   declarations: [
     ListaFilmesComponent,
+    MinhasAvaliacoesComponent,
     CardFilmeComponent,
     StarComponent,
     ModalFilmeComponent,

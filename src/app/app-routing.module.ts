@@ -19,7 +19,7 @@ const routes: Routes = [
     canActivate: [authGuard],
     children: [
       {
-        path: 'filmes',
+        path: '',
         loadChildren: () => import('./filmes/filmes.module').then(m => m.FilmesModule)
       }
     ]
