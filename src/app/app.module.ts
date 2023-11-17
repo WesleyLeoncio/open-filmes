@@ -13,6 +13,7 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { CadastroComponent } from './pages/cadastro/cadastro.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { GeneralModule } from "./shared/general/general.module";
+import { MenuUserComponent } from './shared/components/menu-user/menu-user.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { GeneralModule } from "./shared/general/general.module";
     LoginComponent,
     CadastroComponent,
     HeaderComponent,
+    MenuUserComponent,
   ],
   imports: [
     BrowserModule,

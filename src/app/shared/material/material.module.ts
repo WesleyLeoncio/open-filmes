@@ -8,6 +8,7 @@ import { MatDialogModule } from "@angular/material/dialog";
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [],
@@ -20,7 +21,8 @@ import { MatChipsModule } from '@angular/material/chips';
     MatDialogModule,
     MatToolbarModule,
     MatPaginatorModule,
-    MatChipsModule
+    MatChipsModule,
+    MatMenuModule
   ]
 })
 export class MaterialModule {

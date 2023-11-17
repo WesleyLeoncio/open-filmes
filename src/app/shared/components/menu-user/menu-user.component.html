@@ -1,0 +1,10 @@
+<button mat-icon-button  aria-label="icon user"
+        [matMenuTriggerFor]="menu"
+>
+  <mat-icon>person</mat-icon>
+</button>
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item>Item 1</button>
+  <button mat-menu-item (click)="logout()">Sair</button>
+</mat-menu>
