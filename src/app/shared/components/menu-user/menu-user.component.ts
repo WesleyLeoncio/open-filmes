@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { UserService } from "../../service/user.service";
+import { UserInfo } from "../../../models/interfaces/user-info";
 
 @Component({
   selector: 'app-menu-user',
@@ -8,10 +9,12 @@ import { UserService } from "../../service/user.service";
 })
 export class MenuUserComponent {
 
+  userInfo!: UserInfo;
 
   constructor(
     private userService: UserService,
   ) {
+    this.userInfo = this.userService.getUserLoginInfor();
   }
 
 

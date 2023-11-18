@@ -1,0 +1,12 @@
+.btnMenu{
+  color: #ffffff;
+  //box-shadow: -5px -5px 10px 0px rgba(255, 255, 255, 0.5), 5px 5px 10px 0px rgba(0, 0, 0, 0.3);
+}
+.menu{
+  background-color: #ffffff;
+  font-family: Roboto, sans-serif;
+  button:hover{
+    background-image: linear-gradient(to top, #bc4e9c, #f80759);
+    color: white;
+  }
+}

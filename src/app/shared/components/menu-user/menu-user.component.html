@@ -1,10 +1,25 @@
-<button mat-icon-button  aria-label="icon user"
+<button mat-icon-button aria-label="icon user" class="btnMenu"
         [matMenuTriggerFor]="menu"
+        #locationMenuTrigger="matMenuTrigger"
+        (mouseover)="locationMenuTrigger.openMenu()"
 >
   <mat-icon>person</mat-icon>
 </button>
 
-<mat-menu #menu="matMenu">
-  <button mat-menu-item>Item 1</button>
-  <button mat-menu-item (click)="logout()">Sair</button>
+<mat-menu #menu="matMenu" class="container" >
+  <div (mouseleave)="locationMenuTrigger.closeMenu()" class="menu">
+    <button mat-menu-item>
+      <mat-icon>person</mat-icon>
+      <span>{{userInfo.nome}}</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>edit</mat-icon>
+      <span>Editar perfil</span>
+    </button>
+    <button mat-menu-item (click)="logout()">
+      <mat-icon>close</mat-icon>
+      <span>Sair</span>
+    </button>
+  </div>
 </mat-menu>
+
