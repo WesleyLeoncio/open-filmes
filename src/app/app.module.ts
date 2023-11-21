@@ -14,6 +14,7 @@ import { CadastroComponent } from './pages/cadastro/cadastro.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { GeneralModule } from "./shared/general/general.module";
 import { MenuUserComponent } from './shared/components/menu-user/menu-user.component';
+import { FooterComponent } from './shared/components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { MenuUserComponent } from './shared/components/menu-user/menu-user.compo
     CadastroComponent,
     HeaderComponent,
     MenuUserComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

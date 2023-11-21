@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Nosifer&display=swap');
+
+
+.footer{
+  position: fixed;
+  bottom: 0;
+  z-index: 100;
+  background-image: linear-gradient(to top, #bc4e9c, #f80759);
+  display: flex;
+  justify-content: center;
+  font-family: 'Nosifer', sans-serif;
+  color: #ffffff;
+}
+
