@@ -1,8 +1,10 @@
-<mat-toolbar>
-  <span class="span-titulo">OPEN HOUSE</span>
-  <span class="example-spacer"></span>
-  <button mat-button class="button-rotas" routerLink="">Filmes</button>
-  <button mat-button class="button-rotas" routerLink="avaliacoes">Minhas Avaliações</button>
-  <app-menu-user></app-menu-user>
+<mat-toolbar class="header">
+  <a class="logo">OPEN HOUSE</a>
+  <nav>
+    <a routerLink="">Filmes</a>
+    <a routerLink="avaliacoes">Minhas Avaliações</a>
+  </nav>
+
+  <app-menu-user ></app-menu-user>
 </mat-toolbar>
 

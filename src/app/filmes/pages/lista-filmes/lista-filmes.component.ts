@@ -14,7 +14,7 @@ export class ListaFilmesComponent implements OnInit {
   listaFilmes!: Filme[];
 
   ngOnInit(): void {
-    this.getFilmes(8, 0);
+    this.getFilmes(8, 1);
   }
   constructor(
     private filmeService: FilmeService,

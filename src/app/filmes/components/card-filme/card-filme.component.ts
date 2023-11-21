@@ -6,6 +6,7 @@ import { UserService } from "../../../shared/service/user.service";
 import { UserInfo } from "../../../models/interfaces/user-info";
 import { MatDialog } from "@angular/material/dialog";
 import { ModalFilmeComponent } from "../modal/modal-filme/modal-filme.component";
+import { NotaFilme } from "../../models/interfaces/nota-filme";
 
 @Component({
     selector: 'app-card-filme',
@@ -55,15 +56,15 @@ export class CardFilmeComponent implements OnInit, OnDestroy {
     verificarNota(): void {
         this.avaliacaoService.buscarNota(this.filme.id, this.usuario.id).subscribe(
             {
-                next: notaFilme => this.validarNota(notaFilme.nota),
-                error: err => console.log(`ERROR: ${err}`)
+                next: notaFilme => this.validarNota(notaFilme),
+                error: err => console.log(`ERROR TESTE: ${err}`)
             }
         )
     }
 
-    validarNota(nota: number) {
-        if (nota && nota != 0) {
-            this.nota = nota;
+    validarNota(avaliacao: NotaFilme) {
+        if (avaliacao && avaliacao.nota != 0) {
+            this.nota = avaliacao.nota
         } else {
             this.nota = 0;
         }
