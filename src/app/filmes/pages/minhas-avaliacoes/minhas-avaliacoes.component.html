@@ -1,2 +1,7 @@
-<p>minhas-avaliacoes works!</p>
-<h1>TESTE</h1>
+<div>
+  <app-container class="card-wrapper">
+    <div *ngFor="let avaliacao of listaAvaliacoes">
+      <app-card-filme [filme]="avaliacao.filme" [nota]="avaliacao.nota"></app-card-filme>
+    </div>
+  </app-container>
+</div>
