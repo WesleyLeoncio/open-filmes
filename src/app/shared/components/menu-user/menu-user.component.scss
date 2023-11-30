@@ -1,12 +1,22 @@
-.btnMenu{
+*{
   color: #ffffff;
+}
+
+.btnMenu{
   box-shadow: -5px -5px 10px 0px rgba(255, 255, 255, 0.5), 5px 5px 10px 0px rgba(0, 0, 0, 0.3);
 }
 .menu{
-  background-color: #ffffff;
   font-family: Roboto, sans-serif;
+
+  mat-icon{
+    color: #ffffff;
+  }
   button:hover{
     background-color: hotpink;
-    color: white;
   }
+}
+
+//TODO TENTAR REMOVER O NG-DEEP
+::ng-deep .custom-class {
+  background-color: deeppink!important;
 }

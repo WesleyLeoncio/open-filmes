@@ -1,17 +1,38 @@
 @import url('https://fonts.googleapis.com/css2?family=Nosifer&display=swap');
 
-
 .header{
   position: fixed;
   top: 0;
   display: flex;
-  padding-left: 120px;
   justify-content: space-between;
   align-items: center;
   z-index: 100;
   background-image: linear-gradient(to top, #bc4e9c, #f80759);
-
 }
+
+.navFlex{
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+nav a {
+  font-size: 18px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: .3s;
+}
+
+
+nav a:hover,
+nav a.active {
+  color: #0ef;
+}
+
+
 
 .logo {
   font-family: 'Nosifer', sans-serif;
@@ -19,18 +40,7 @@
   color: #fff;
   text-decoration: none;
   font-weight: 600;
+  padding-right: 10%;
 }
 
-nav a {
-  font-size: 18px;
-  color: #fff;
-  text-decoration: none;
-  font-weight: 500;
-  margin-left: 35px;
-  transition: .3s;
-}
 
-nav a:hover,
-nav a.active {
-  color: #0ef;
-}

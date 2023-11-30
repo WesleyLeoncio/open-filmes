@@ -6,8 +6,8 @@
   <mat-icon>person</mat-icon>
 </button>
 
-<mat-menu #menu="matMenu" class="container" >
-  <div (mouseleave)="locationMenuTrigger.closeMenu()" class="menu">
+<mat-menu #menu="matMenu" class="custom-class" >
+  <div (mouseleave)="locationMenuTrigger.closeMenu()" class="menu" >
     <button mat-menu-item>
       <mat-icon>person</mat-icon>
       <span>{{userInfo.nome}}</span>
@@ -16,6 +16,7 @@
       <mat-icon>edit</mat-icon>
       <span>Editar perfil</span>
     </button>
+    <mat-divider></mat-divider>
     <button mat-menu-item (click)="logout()">
       <mat-icon>close</mat-icon>
       <span>Sair</span>
