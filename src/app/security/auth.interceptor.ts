@@ -33,7 +33,7 @@ export class AuthInterceptor implements HttpInterceptor {
   }
 
   private handler401Error(erro: HttpErrorResponse): Observable<HttpErrorResponse | any> {
-    if (erro.status === 401 || erro.status == 403) {
+    if (erro.status === 401 || erro.status == 403 || erro.status === 0) {
       this.userService.logout();
     }
     return throwError(() => erro);
