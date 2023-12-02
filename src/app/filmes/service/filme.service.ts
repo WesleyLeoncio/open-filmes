@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from "@angular/common/http";
-import { FilmePageable } from "../models/interfaces/filme-pageable";
+import { FilmePageable } from "../models/interfaces/filme/filme-pageable";
 import { Observable } from "rxjs";
 import { environment } from "../../../environments/environment";
 

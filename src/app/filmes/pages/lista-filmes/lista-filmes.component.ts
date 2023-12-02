@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FilmeService } from "../../service/filme.service";
-import { Filme } from "../../models/interfaces/filme";
-import { FilmePageable } from "../../models/interfaces/filme-pageable";
+import { Filme } from "../../models/interfaces/filme/filme";
+import { FilmePageable } from "../../models/interfaces/filme/filme-pageable";
 
 @Component({
   selector: 'app-lista-filmes',

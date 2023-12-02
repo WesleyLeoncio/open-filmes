@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AvaliacaoService } from "../../service/avaliacao.service";
 import { UserService } from "../../../shared/service/user.service";
 import { UserInfo } from "../../../models/interfaces/user-info";
+import { AvaliacaoPageable } from "../../models/interfaces/avaliacao/avaliacao-pageable";
+import { Avaliacao } from "../../models/interfaces/avaliacao/avaliacao";
 
 @Component({
   selector: 'app-minhas-avaliacoes',
@@ -9,9 +11,9 @@ import { UserInfo } from "../../../models/interfaces/user-info";
   styleUrls: ['./minhas-avaliacoes.component.scss']
 })
 export class MinhasAvaliacoesComponent implements OnInit {
-  //TODO CRIAR PARTE DE BUSCAR USER POR EMAIL
-  listaAvaliacoesPage!: any;
-  listaAvaliacoes!: any;
+  //TODO REFATORAR
+  listaAvaliacoesPage!: AvaliacaoPageable;
+  listaAvaliacoes!: Avaliacao[];
   usuario!: UserInfo;
 
   ngOnInit(): void {

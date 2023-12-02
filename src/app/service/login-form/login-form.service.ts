@@ -24,7 +24,7 @@ export class LoginFormService {
   ) {
     this.formLogin = this.formBuilder.group({
       login: [null, Validators.compose([
-        Validators.required, Validators.email
+        Validators.required, Validators.email,
       ])],
       password: [null, Validators.compose([
         Validators.required, Validators.minLength(4)

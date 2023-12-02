@@ -1,12 +1,12 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { Filme } from "../../models/interfaces/filme";
+import { Filme } from "../../models/interfaces/filme/filme";
 import { AvaliacaoService } from "../../service/avaliacao.service";
 import { AvaliacaoRequest } from "../../models/request/avaliacao-request";
 import { UserService } from "../../../shared/service/user.service";
 import { UserInfo } from "../../../models/interfaces/user-info";
 import { MatDialog } from "@angular/material/dialog";
 import { ModalFilmeComponent } from "../modal/modal-filme/modal-filme.component";
-import { NotaFilme } from "../../models/interfaces/nota-filme";
+import { NotaFilme } from "../../models/interfaces/filme/nota-filme";
 
 @Component({
   selector: 'app-card-filme',
@@ -60,7 +60,7 @@ export class CardFilmeComponent implements OnInit, OnDestroy {
     }
   }
 
-  validarNota(avaliacao: NotaFilme) {
+  validarNota(avaliacao: NotaFilme): void {
     if (avaliacao && avaliacao.nota != 0) {
       this.nota = avaliacao.nota
     } else {
@@ -83,6 +83,7 @@ export class CardFilmeComponent implements OnInit, OnDestroy {
       }
     });
   }
+
 
   buscarNota(): void{
     this.avaliacaoService.buscarNota(this.filme.id, this.usuario.id).subscribe(

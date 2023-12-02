@@ -1,4 +1,4 @@
-import { Filme } from "./filme";
+import { Filme } from "./filme/filme";
 
 export interface ModalInfor {
   filme: Filme,

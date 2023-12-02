@@ -1,5 +1,5 @@
 import { Filme } from "./filme";
-import { Pageable } from "./pageble";
+import { Pageable } from "../pageble";
 
 export interface FilmePageable {
     content: Filme[],
