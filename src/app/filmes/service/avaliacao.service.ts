@@ -5,7 +5,6 @@ import { AvaliacaoRequest } from "../models/request/avaliacao-request";
 import { Observable } from "rxjs";
 import { NotaFilme } from "../models/interfaces/filme/nota-filme";
 import { SnackBarService } from "../../shared/service/snack-bar.service";
-import { FilmePageable } from "../models/interfaces/filme/filme-pageable";
 import { AvaliacaoPageable } from "../models/interfaces/avaliacao/avaliacao-pageable";
 
 @Injectable({
@@ -25,7 +24,7 @@ export class AvaliacaoService {
         return this.http.post(`${this.url}/avaliacoes`, avaliacao);
     }
 
-  public listarAvaliacoes(userId: number, size: number, page: number, sort: string = 'id'): Observable<AvaliacaoPageable> {
+  public listarAvaliacoes(userId: number, page: number = 0, size: number = 8, sort: string = 'id'): Observable<AvaliacaoPageable> {
     let params: HttpParams = new HttpParams()
       .set('size', size)
       .set('page', page)

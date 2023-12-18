@@ -15,7 +15,7 @@ export class FilmeService {
   ) {
   }
 
-  public listarFilmes(size: number,page: number, sort: string = 'id'): Observable<FilmePageable> {
+  public listarFilmes(page: number = 0, size: number = 8, sort: string = 'id'): Observable<FilmePageable> {
     let params: HttpParams = new HttpParams()
       .set('size', size)
       .set('page', page)

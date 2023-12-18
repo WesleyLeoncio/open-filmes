@@ -3,6 +3,19 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
   row-gap: 2rem;
-  padding-bottom: 8rem;
 }
 
+.loading-spinner {
+  padding: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.pagination{
+  margin-top: 25px;
+  padding-bottom: 8rem;
+  display: flex;
+  justify-content: center;
+}
