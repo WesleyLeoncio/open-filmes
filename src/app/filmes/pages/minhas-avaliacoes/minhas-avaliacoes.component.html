@@ -5,7 +5,7 @@
     </div>
 
   </app-container>
-    <mat-paginator class="pagination"
+    <mat-paginator class="pagination" *ngIf="avaliacoes.totalElements > 0 else semAvaliacao"
             [pageSizeOptions]="[4, 8, 12, 16]"
             showFirstLastButtons
             [pageIndex]="pageIndex"
@@ -20,4 +20,10 @@
     <div class="loading-spinner">
         <mat-spinner></mat-spinner>
     </div>
+</ng-template>
+
+<ng-template #semAvaliacao>
+  <div class="sem-avaliacao">
+   <p>VOCÊ NÃO REALIZOU AVALIAÇÕES!</p>
+  </div>
 </ng-template>

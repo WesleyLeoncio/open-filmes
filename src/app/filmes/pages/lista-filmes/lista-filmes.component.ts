@@ -40,7 +40,7 @@ export class ListaFilmesComponent implements OnInit {
           console.log(`Erro: ${error}`);
           return of({content: [], totalElements: 0, totalPages: 0})
         })
-      )
+      );
   }
 
 
