@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from "./pages/dashboard/dashboard.component";
-import { LoginComponent } from "./pages/login/login.component";
+import { DashboardComponent } from "./modules/usuarios/pages/dashboard/dashboard.component";
+import { LoginComponent } from "./modules/usuarios/pages/login/login.component";
 import { authGuard } from "./security/auth.guard";
-import { CadastroComponent } from "./pages/cadastro/cadastro.component";
+import { CadastroComponent } from "./modules/usuarios/pages/cadastro/cadastro.component";
 
 const routes: Routes = [
   {
@@ -20,7 +20,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        loadChildren: () => import('./filmes/filmes.module').then(m => m.FilmesModule)
+        loadChildren: () => import('./modules/filmes/filmes.module').then(m => m.FilmesModule)
       }
     ]
   },

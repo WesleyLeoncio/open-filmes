@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { UserService } from "../../service/user.service";
-import { UserInfo } from "../../../models/interfaces/user-info";
+import { UserService } from "../../../modules/usuarios/service/user.service";
+import { UserInfo } from "../../../modules/usuarios/models/interfaces/user-info";
 
 @Component({
   selector: 'app-menu-user',

@@ -6,7 +6,7 @@ import {
   HttpInterceptor, HttpErrorResponse
 } from '@angular/common/http';
 import { catchError, Observable, throwError } from 'rxjs';
-import { UserService } from "../shared/service/user.service";
+import { UserService } from "../modules/usuarios/service/user.service";
 
 
 @Injectable()

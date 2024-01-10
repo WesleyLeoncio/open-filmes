@@ -1,0 +1,51 @@
+<div class="login">
+  <div class="painel">
+    <div class="image-login" id="image-login-id">
+      <img src="../../../../../assets/img/luffy.png" alt="">
+    </div>
+    <div class="form-login" id="form-login-id">
+      <div class="titulo">
+        <h1>OPEN HOUSE</h1>
+      </div>
+        <form [formGroup]="loginFormService.formLogin">
+          <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="exemplo@dominio.com"
+                   name="login"
+                   formControlName="login"
+            >
+            <mat-error>{{ loginFormService.msgErrorForm(
+              'email',
+              'login'
+            ) }}</mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'"
+                   name="senha"
+                   formControlName="password"
+            >
+            <mat-error>{{ loginFormService.msgErrorForm(
+              'senha',
+              'password'
+            ) }}</mat-error>
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+          <div class="button-login">
+            <button mat-flat-button
+                    color="accent" (click)="login()"
+                    [disabled]="!loginFormService.validarForm()">LOGIN
+            </button>
+          </div>
+        </form>
+      <p>
+        <a><strong><u routerLink="/cadastro">Clique aqui para se cadastrar!</u></strong></a>
+      </p>
+    </div>
+  </div>
+
+</div>
+
