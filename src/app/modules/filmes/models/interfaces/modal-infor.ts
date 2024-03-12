@@ -2,6 +2,6 @@ import { Filme } from "./filme/filme";
 
 export interface ModalInfor {
   filme: Filme,
-  userId: number,
+  userId: string,
   nota: number
 }

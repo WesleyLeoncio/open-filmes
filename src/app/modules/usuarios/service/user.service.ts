@@ -20,7 +20,7 @@ export class UserService {
     }
   }
 
-  private decodificarJWT(){
+  private decodificarJWT(): void{
     const token: string = this.getToken();
     this.userLoginInfor = jwtDecode(token) as UserInfo;
   }

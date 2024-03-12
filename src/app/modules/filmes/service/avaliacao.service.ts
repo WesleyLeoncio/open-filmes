@@ -24,7 +24,7 @@ export class AvaliacaoService {
         return this.http.post(`${this.url}/avaliacoes`, avaliacao);
     }
 
-  public listarAvaliacoes(userId: number, page: number = 0, size: number = 8, sort: string = 'id'): Observable<AvaliacaoPageable> {
+  public listarAvaliacoes(userId: string, page: number = 0, size: number = 8, sort: string = 'id'): Observable<AvaliacaoPageable> {
     let params: HttpParams = new HttpParams()
       .set('size', size)
       .set('page', page)
@@ -33,7 +33,7 @@ export class AvaliacaoService {
     return this.http.get<AvaliacaoPageable>(`${this.url}/avaliacoes/user/${userId}`, {params});
   }
 
-    public buscarNota(filmeId: number, usuarioId: number): Observable<NotaFilme> {
+    public buscarNota(filmeId: string, usuarioId: string): Observable<NotaFilme> {
         return this.http.get<NotaFilme>(`${this.url}/avaliacoes/nota/${filmeId}/${usuarioId}`);
     }
 

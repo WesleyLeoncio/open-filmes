@@ -1,7 +1,7 @@
 import { Categoria } from "../../categoria";
 
 export interface Filme {
-  id: number,
+  id: string,
   nome: string,
   descricao: string,
   dataLancamento: Date,
